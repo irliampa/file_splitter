@@ -1,4 +1,4 @@
-traxanas <- function(input_file)
+file_splitter <- function(input_file)
 {
   temp <- read.table(file=input_file,sep="\t",header=FALSE)
   for (i in 1: dim(temp)[1])
