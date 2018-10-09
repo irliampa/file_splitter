@@ -12,4 +12,4 @@ ADD file_splitter.R /home/file_splitter/file_splitter.R
 
 WORKDIR /home/file_splitter
 
-CMD Rscript file_splitter.R /data/input
+CMD Rscript file_splitter.R /data/input_file
