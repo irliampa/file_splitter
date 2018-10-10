@@ -1,0 +1,34 @@
+<tool id="file_splitter" name="File splitter">
+  <description>R tool to split a tabular file to a collection of tabular files row-wise</description>
+  <edam_topics>
+    <edam_topic>topic_2269</edam_topic>
+  </edam_topics>
+  
+  <requirements>
+  <container type="docker"> </container>
+  <requirements>
+  
+  <command><![CDATA[ 
+  mkdir data && cp $input_file data/
+  docker run --rm -v "$(pwd)"/data/:/data/ file_splitter
+  ]]></command>
+  
+  <inputs>
+        <param name="input_file" type="data" label="input_file" />
+       
+  </inputs>
+  
+  <outputs>
+        <collection name="split_output" type="list" label="Table split row-wise">
+        <discover_datasets pattern="__name_and_ext__" directory="data" />
+        </collection>
+  </outputs>
+  
+<help>
+
+File splitter
+
+Input: A tab-separated file without header (see test_data_limma.tabular). The filename must be: input_file
+
+Output 1: One separate tab-separated file for each line, with the filename contaning the line number and the first element of that line, separated by a dash. Output 2: A tabular file named output_list, containing the filenames of the aforementioned output files.
+
