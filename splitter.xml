@@ -1,18 +1,18 @@
 <tool id="filesplitter" name="File Splitter">
   <description>R tool to split a tabular file to a collection of tabular files row-wise </description>
-
-  <command>
-  mkdir output && cd output && Rscript $__tool_directory__/file_splitter/file_splitter.R '$input_file'
-  </command>
+ 
+<command><![CDATA[
+  mkdir output && cd output && Rscript '$__tool_directory__/file_splitter/file_splitter.R' '$input_file'
+]]></command>
   
-  <inputs>
+<inputs>
         <param name="input_file" type="data" format = "tabular" label="Input file" /> 
-  </inputs>
-  <outputs>
+</inputs>
+<outputs>
 	<collection type="list" name="split files" label="Split gene list">
 		<discover_datasets pattern="(?P&lt;identifier_0&gt;[^_]+)-(?P&lt;identifier_1&gt;[^_]+)\.txt" directory="output" visible="true" />
 	</collection>
-  </outputs>
+</outputs>
 
 
   
